@@ -3,7 +3,7 @@
 sudo -s
 
 unzip oracle-xe-11.2.0-1.0.x86_64.rpm.zip 
-sudo apt-get install alien libaio1 unixodbc
+sudo apt -y install alien libaio1 unixodbc
 cd Disk1/
 
 sudo cat config > /sbin/chkconfig
