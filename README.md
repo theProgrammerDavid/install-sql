@@ -20,7 +20,7 @@ sudo alien --scripts -d oracle-xe-11.2.0-1.0.x86_64.rpm
 - Once the script executes, add the contents of ``bashrc-conf`` to your terminal's source file.
 If you're using the default ``bash`` terminal, use
 ```bash
-sudo cat bashrc-conf >> ~/.bashrc
+cat bashrc-conf >> ~/.bashrc
 ```
 
 - Once you are prompted for a username, enter the username as `sys as sysdba` and password as a single keyboard space.

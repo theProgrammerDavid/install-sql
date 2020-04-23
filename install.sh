@@ -1,13 +1,9 @@
 #!/bin/bash
-
-
-unzip oracle-xe-11.2.0-1.0.x86_64.rpm.zip 
 echo "This script needs the following packages: "
 echo "alien libaio1 unixodbc"
 echo "Do you want to install these packages ?"
 sudo apt install alien libaio1 unixodbc
 cd Disk1/
-
 sudo -s
 sudo cat config > /sbin/chkconfig
 sudo chmod 755 /sbin/chkconfig
@@ -21,3 +17,4 @@ sudo touch /var/lock/subsys/listener
 sudo dpkg --install oracle-xe_11.2.0-2_amd64.deb
 echo "This might also take a while..."
 sudo /etc/init.d/oracle-xe configure 
+echo "Oracle SQL-Plus is done configuring"
