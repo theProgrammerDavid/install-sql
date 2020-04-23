@@ -2,7 +2,7 @@
 
 * Make ``install.sh`` and ``install_part2.sh`` as executable
 
-
+- Windows [32 bit](https://drive.google.com/file/d/1syJJOFX5NXgRgPlRmkckz-PQYrJqDvjK/view?usp=sharing) and [64 bit](https://drive.google.com/open?id=1Fe1lxZMBJMn2uWGwIQPn9OcEllrx_arX). Unzip the download and run ```DISK1/setup.exe``` .
 - Download the ``.rpm`` package from  [here](https://www.oracle.com/database/technologies/xe-prior-releases.html). 
 - To download the ``.rpm`` package, you will need to sign in with your oracle account that you can create for free.
 
