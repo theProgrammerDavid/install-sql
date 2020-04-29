@@ -3,7 +3,6 @@ import requests
 import urllib.request
 from tqdm import tqdm
 from os import path
-import subprocess
 
 FILE_DOWNLOAD_URL = 'https://www.dropbox.com/s/i0i2otpryp7xjpm/oracle-xe_11.2.0-2_amd64.deb?dl=1'
 
@@ -35,12 +34,12 @@ def SqlPlusUSername():
 
 def script2():
     print('Configuring post install files...')
-    rc=subprocess.Popen(['bash','./install_part2.sh'])
+    os.system('./install_part2.sh')
     print('Done configuring post install files')
 
 def script1():
     print('Configuring files..')
-    rc=subprocess.Popen(['bash','./install_part1.sh'])
+    os.system('./install_part1.sh')
     print('Done configuring files')
 
 
@@ -84,7 +83,7 @@ def setup():
     download_deb()
     make_exec()
     script1()
-    #install_deb()
+    install_deb()
     script2()
     SqlPlusUSername()
     print('\n\n================================')
