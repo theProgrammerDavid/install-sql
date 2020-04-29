@@ -2,8 +2,9 @@ import os
 import requests
 import urllib.request
 from tqdm import tqdm
+from os import path
 
-FILE_DOWNLOAD_URL = 'https://ucf2de894d9a247d9a42c4f9297e.dl.dropboxusercontent.com/cd/0/get/A2eeBjNIQ0mxn7ZVT7lFhGYT7RkzmnBQcZmrk16bckzudstwhx34ETCWD7kampPVeJhZOfWUM25-qsL8XSwoK9RisgGwTozZmnpwXJR8xzQbrnQpv5woeywfVrjKm38dVQ4/file?dl=1#'
+FILE_DOWNLOAD_URL = 'https://www.dropbox.com/s/i0i2otpryp7xjpm/oracle-xe_11.2.0-2_amd64.deb?dl=1'
 
 
 class DownloadProgressBar(tqdm):
@@ -12,7 +13,6 @@ class DownloadProgressBar(tqdm):
             self.total = tsize
         self.update(b * bsize - self.n)
 
-
 def download_url(url, output_path):
     print('Downloading oracle sqlplus package....')
     with DownloadProgressBar(unit='B', unit_scale=True,
@@ -20,15 +20,26 @@ def download_url(url, output_path):
         urllib.request.urlretrieve(
             FILE_DOWNLOAD_URL, filename=output_path, reporthook=t.update_to)
 
+# def download_url(url, output_path):
+#     print('Downloading oracle sqlplus package....')
+#     os.system('wget '+FILE_DOWNLOAD_URL +' -o oracle.dev')
+
+def SqlPlusUSername():
+    uname = input('Enter sqlplus username')
+   
+    os.system('sudo usermod -a -G dba '+uname)
+    os.system('sudo service oracle-xe start')
+
+
 
 def script2():
     print('Configuring post install files...')
-    os.system('./install_part2.sh')
+    os.system('sudo bash ./install_part2.sh')
     print('Done configuring post install files')
 
-def scrip1():
+def script1():
     print('Configuring files..')
-    os.system("./install_part1.sh")
+    os.system('sudo bash ./install_part1.sh')
     print('Done configuring files')
 
 
@@ -38,14 +49,17 @@ def make_exec():
 
 
 def install_deb():
-    print('Installing Package. This might take a while...')
+    print('\nInstalling Package. This might take a while...\n')
     os.system('sudo dpkg -i ./oracle.deb')
-    print('Dont installing package')
+    print('Done installing package')
 
 
 def download_deb():
     print('Starting Download')
-    download_url(FILE_DOWNLOAD_URL, 'oracle.deb')
+    if not path.exists('./oracle.deb'):
+        download_url(FILE_DOWNLOAD_URL, 'oracle.deb')
+    else:
+        print('File already exists. Continuing with installation ')
     print('Download finished')
 
 
@@ -71,7 +85,7 @@ def setup():
     script1()
     install_deb()
     script2()
-
+    SqlPlusUSername()
     print('\n\n================================')
     print('Script has finished installing Oracle SQL-Plus')
     print('You may now access SQL Plus from the command line using the command sqlplus')
