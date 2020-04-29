@@ -1,4 +1,3 @@
-sudo -s
 sudo cat config > /sbin/chkconfig
 sudo chmod 755 /sbin/chkconfig
 sudo cat oracle-conf > /etc/sysctl.d/60-oracle.conf
