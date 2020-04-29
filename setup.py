@@ -34,12 +34,12 @@ def SqlPlusUSername():
 
 def script2():
     print('Configuring post install files...')
-    os.system('bash ./install_part2.sh')
+    os.system('sudo bash ./install_part2.sh')
     print('Done configuring post install files')
 
 def script1():
     print('Configuring files..')
-    os.system('bash ./install_part1.sh')
+    os.system('sudo bash ./install_part1.sh')
     print('Done configuring files')
 
 
