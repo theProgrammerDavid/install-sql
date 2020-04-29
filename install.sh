@@ -18,10 +18,9 @@ sudo cat rc2-file > /etc/rc2.d/S01shm_load
 sudo chmod 755 /etc/rc2.d/S01shm_load
 sudo ln -s /usr/bin/awk /bin/awk 
 sudo mkdir /var/lock/subsys 
-sudo touch /var/lock/subsys/
+sudo touch /var/lock/subsys/listener
 
 echo "Installing SQL Plus from the package.."
-
 echo "\nThis might take a while\n"
 sudo dpkg --install oracle.deb
 
