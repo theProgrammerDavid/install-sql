@@ -1,16 +1,10 @@
-# Ubuntu x64 python installer script for Oracle SQL Plus 
+# Ubuntu x64 python3 installer script for Oracle SQL Plus 
 
-  ## Windows
-
-- Windows [32 bit](https://drive.google.com/file/d/1syJJOFX5NXgRgPlRmkckz-PQYrJqDvjK/view?usp=sharing) and [64 bit](https://drive.google.com/open?id=1Fe1lxZMBJMn2uWGwIQPn9OcEllrx_arX). Unzip the download and run ```DISK1/setup.exe``` 
-- Follow the installer instructions.
 
 ## Resources
 
 - Download the ``.rpm`` package from the [official oracle website](https://www.oracle.com/database/technologies/xe-prior-releases.html).
 * For a Debian based system , download the package from [here](https://drive.google.com/file/d/1Qh_XK-TNaU61-e-5_G5peii9_uj1j-uY/view)
-
-  
 
 Note: If for some reason, you are not able to download the ``.deb`` file, you can convert the ``.rpm`` package into a ``.deb`` using the following command
 
@@ -19,9 +13,14 @@ Note: If for some reason, you are not able to download the ``.deb`` file, you ca
 sudo alien --scripts -d oracle-xe-11.2.0-1.0.x86_64.rpm
 
 ```
+  ## Windows
 
-## Installation
-  
+- Windows [32 bit](https://drive.google.com/file/d/1syJJOFX5NXgRgPlRmkckz-PQYrJqDvjK/view?usp=sharing) and [64 bit](https://drive.google.com/open?id=1Fe1lxZMBJMn2uWGwIQPn9OcEllrx_arX). Unzip the download and run ```DISK1/setup.exe``` 
+- Follow the installer instructions.
+
+## Ubuntu Installation
+
+
 ```python
 python3 setup.py
 ```
@@ -37,3 +36,5 @@ python3 setup.py
 
 - if no error, execute the last command to give your user access to the database
 `grant connect, resource to USERNAME;`
+
+Should you, for some reason, not have python3, you can use ```install.sh``` to accomplish the same task
